@@ -2,8 +2,13 @@ import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState';
 
 export const AddTransaction = () => {
-    const [text, setText] = useState('');
-    const [amount, setAmount] = useState(0);
+    const [investment, setInvestment] = useState(0);
+    const [annualnetincome, setAnnualNetIncome] = useState(0);
+    const [energy, setEnergy] = useState(0);
+    const [cost, setCost] = useState(0);
+    const [packbacktime, setPackBackTime] = useState(0);
+
+
 
     const { addTransaction } = useContext(GlobalContext)
 
@@ -12,8 +17,10 @@ export const AddTransaction = () => {
 
         const newTransaction = {
             id: Math.floor(Math.random() * 10000000),
-            text,
-            amount: +amount
+            investment,
+            cost,
+            energy,
+            packbacktime: investment / (cost * energy),
         }
 
         addTransaction(newTransaction);
@@ -22,20 +29,24 @@ export const AddTransaction = () => {
 
     return (
         <div>
-            <h3>Add new transaction</h3>
+            <h3>Add Investment</h3>
             <form onSubmit={onSubmit} >
                 <div className="form-control">
-                    <label htmlFor="text">Text</label>
-                    <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Enter text..." />
+                    <label htmlFor="investment">Investment</label>
+                    <input type="number" value={investment} onChange={(e) => setInvestment(e.target.value)} placeholder="Enter Investment Value..." />
                 </div>
                 <div className="form-control">
-                    <label htmlFor="amount"
-                    >Amount <br />
-            (negative - expense, positive - income)</label
-                    >
-                    <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount..." />
+                    <label htmlFor="cost">Cost or savings per energy unit (1/kWh)</label>
+                    <input type="number" value={cost} onChange={(e) => setCost(e.target.value)} placeholder="Enter Cost Value..." />
                 </div>
-                <button className="btn">Add transaction</button>
+                <div className="form-control">
+                    <label htmlFor="energy">Energy produced or saved per year (kWh/year)</label>
+                    <input type="number" value={energy} onChange={(e) => setEnergy(e.target.value)} placeholder="Enter Energy Value..." />
+                </div>
+
+
+
+                <button className="btn">Generate</button>
             </form>
         </div>
 
