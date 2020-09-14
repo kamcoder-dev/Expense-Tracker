@@ -7,7 +7,7 @@ export const Balance = () => {
 
     const amounts = transactions.map(transactions => transactions.packbacktime);
 
-    const total = amounts.reduce((acc, item) => (acc = item), 0).toFixed(2)
+    const total = amounts.reduceRight((acc, item) => (acc = item), 0).toFixed(2)
 
     return (
         <>
