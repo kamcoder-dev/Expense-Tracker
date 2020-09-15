@@ -17,7 +17,12 @@ function App() {
       <Router>
         <Switch>
 
-          <Route path="/" component={Header} />
+
+
+          <Route>
+            <Header />
+            <Payback />
+          </Route>
 
 
 
