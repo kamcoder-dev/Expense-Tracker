@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState';
 
-export const AddTransaction = () => {
+export const AddTime = () => {
     const [investment, setInvestment] = useState(0);
     const [annualnetincome, setAnnualNetIncome] = useState(0);
     const [energy, setEnergy] = useState(0);
@@ -10,12 +10,12 @@ export const AddTransaction = () => {
 
 
 
-    const { addTransaction } = useContext(GlobalContext)
+    const { addTime } = useContext(GlobalContext)
 
     const onSubmit = e => {
         e.preventDefault();
 
-        const newTransaction = {
+        const newTime = {
             id: Math.floor(Math.random() * 10000000),
             investment,
             cost,
@@ -23,7 +23,7 @@ export const AddTransaction = () => {
             packbacktime: investment / (cost * energy),
         }
 
-        addTransaction(newTransaction);
+        addTime(newTime);
     }
 
 
@@ -43,9 +43,6 @@ export const AddTransaction = () => {
                     <label htmlFor="energy">Energy produced or saved per year (kWh/year)</label>
                     <input type="number" value={energy} onChange={(e) => setEnergy(e.target.value)} placeholder="Enter Energy Value..." />
                 </div>
-
-
-
                 <button className="btn">Generate</button>
             </form>
         </div>

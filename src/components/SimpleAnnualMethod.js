@@ -1,13 +1,13 @@
 import React from 'react'
 import { Years } from './Years';
-import { AddTime } from './AddTime';
+import { AddSaving } from './AddSaving';
 
 
 function Payback() {
     return (
         <div>
             <Years />
-            <AddTime />
+            <AddSaving />
 
 
         </div>
