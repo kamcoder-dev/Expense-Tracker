@@ -26,6 +26,13 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
+    function deleteCost(id) {
+        dispatch({
+            type: 'DELETE_COST',
+            payload: id
+        })
+    }
+
     function addTime(time) {
         dispatch({
             type: 'ADD_TIME',
@@ -33,12 +40,23 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
+    function addCost(cost) {
+        dispatch({
+            type: 'ADD_COST',
+            payload: cost
+        })
+    }
+
 
     return (
         <GlobalContext.Provider value={{
             times: state.times,
+            costs: state.costs,
             deleteTime,
-            addTime
+            addTime,
+            deleteCost,
+            addCost
+
         }}>
             {children}
         </GlobalContext.Provider>

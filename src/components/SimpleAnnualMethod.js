@@ -1,12 +1,12 @@
 import React from 'react'
-import { Years } from './Years';
+import { Money } from './Money';
 import { AddSaving } from './AddSaving';
 
 
-function Payback() {
+function SimpleAnnualMethod() {
     return (
         <div>
-            <Years />
+            <Money />
             <AddSaving />
 
 
@@ -14,6 +14,6 @@ function Payback() {
     )
 }
 
-export default Payback
+export default SimpleAnnualMethod
 
 

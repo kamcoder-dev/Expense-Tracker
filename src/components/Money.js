@@ -2,10 +2,10 @@ import React, { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState';
 
 
-export const Years = () => {
-    const { transactions } = useContext(GlobalContext);
+export const Money = () => {
+    const { costs } = useContext(GlobalContext);
 
-    const amounts = transactions.map(transactions => transactions.cost);
+    const amounts = costs.map(costs => costs.cost);
 
     const total = amounts.reduceRight((acc, item) => (acc = item), 0).toFixed(2)
 
