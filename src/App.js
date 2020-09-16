@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from './components/Header';
+import { HeaderTime } from './components/Header';
 import { Header1 } from './components/Header1'
 import { Years } from './components/Years';
 import { IncomeExpenses } from './components/IncomeExpenses';
@@ -9,7 +9,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { GlobalProvider } from './context/GlobalState';
 import Payback from './components/Payback';
 
-import './App.css';
 
 function App() {
   return (
@@ -19,14 +18,14 @@ function App() {
 
 
 
-          <Route>
-            <Header />
+          <Route path="/">
+            <HeaderTime />
             <Payback />
           </Route>
 
+          <Route path="SAM" component={Header1} />
 
 
-          <Route exact path="SAM" component={Header1} />
         </Switch>
       </Router>
     </GlobalProvider>

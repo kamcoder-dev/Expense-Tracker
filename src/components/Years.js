@@ -1,6 +1,17 @@
 import React, { useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState';
-
+import {
+    Button,
+    Container,
+    Checkbox,
+    Form,
+    Input,
+    Radio,
+    Select,
+    TextArea,
+    Header,
+    Icon
+} from 'semantic-ui-react'
 
 export const Years = () => {
     const { times } = useContext(GlobalContext);
@@ -10,9 +21,15 @@ export const Years = () => {
     const total = amounts.reduceRight((acc, item) => (acc = item), 0).toFixed(2);
 
     return (
-        <>
-            <h4>Pack Back Time</h4>
-            <h1>{total} Years</h1>
-        </>
+
+        <Container>
+            <Header as='h2'>
+                <Icon name='time' />
+                <Header.Content>
+                    Pay Back Time
+            <Header.Subheader>{total} Years</Header.Subheader>
+                </Header.Content>
+            </Header>
+        </Container>
     )
 }
