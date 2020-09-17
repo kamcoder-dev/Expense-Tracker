@@ -8,9 +8,11 @@ import {
     Input,
     Radio,
     Select,
-    TextArea,
+    Segment,
     Header,
-    Icon
+    Icon,
+    Statistic,
+    Grid
 } from 'semantic-ui-react'
 
 export const Years = () => {
@@ -22,14 +24,26 @@ export const Years = () => {
 
     return (
 
-        <Container>
-            <Header as='h2'>
-                <Icon name='time' />
-                <Header.Content>
-                    Pay Back Time
-            <Header.Subheader>{total} Years</Header.Subheader>
-                </Header.Content>
-            </Header>
-        </Container>
+        <>
+
+            <Grid columns={7} centered>
+                <Grid.Column>
+                    <Header as='h2'>
+
+                        <Header.Content>Payback Time</Header.Content>
+
+
+                        <Statistic>
+                            <Statistic.Value>{total}</Statistic.Value>
+                            <Statistic.Label>Years</Statistic.Label>
+                        </Statistic>
+                    </Header>
+                </Grid.Column>
+            </Grid>
+
+
+
+        </>
+
     )
 }

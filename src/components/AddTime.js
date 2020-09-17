@@ -1,16 +1,17 @@
 import React, { useState, useContext } from 'react'
 import { GlobalContext } from '../context/GlobalState';
-
+import './AddTime.css'
 import {
     Button,
     Container,
     Checkbox,
     Form,
-    Input,
+    Icon,
     Radio,
     Select,
     TextArea,
-    Header
+    Header,
+    Grid
 } from 'semantic-ui-react'
 
 
@@ -41,34 +42,37 @@ export const AddTime = () => {
 
 
     return (
-        <div>
-            <Container>
-                <Header size='medium'>Add Investment</Header>
+        <div centered>
 
-                <Form onSubmit={onSubmit} >
-                    <Form.Group >
-                        <Form.Field>
-                            <label htmlFor="investment">Investment</label>
-                            <input type="number" value={investment} onChange={(e) => setInvestment(e.target.value)} placeholder="Enter Investment Value..." />
-                        </Form.Field>
-                        <br />
 
-                        <Form.Field>
-                            <label htmlFor="cost">Cost or savings per energy unit (1/kWh)</label>
-                            <input type="number" value={cost} onChange={(e) => setCost(e.target.value)} placeholder="Enter Cost Value..." />
-                        </Form.Field>
-                        <br />
-                        <Form.Field>
-                            <label htmlFor="energy">Energy produced or saved per year (kWh/year)</label>
-                            <input type="number" value={energy} onChange={(e) => setEnergy(e.target.value)} placeholder="Enter Energy Value..." />
+            <Form onSubmit={onSubmit} >
+                <Form.Group widths="equal">
 
-                        </Form.Field>
-                        <br />
+                    <Form.Field>
+                        <label htmlFor="investment">Investment</label>
+                        <input type="number" value={investment} onChange={(e) => setInvestment(e.target.value)} placeholder="Enter Investment Value..." />
+                    </Form.Field>
 
-                        <Button primary>Generate</Button>
-                    </Form.Group>
-                </Form>
-            </Container>
+                    <Form.Field>
+                        <label htmlFor="cost">Cost or savings per energy unit (1/kWh)</label>
+                        <input type="number" value={cost} onChange={(e) => setCost(e.target.value)} placeholder="Enter Cost Value..." />
+                    </Form.Field>
+
+
+
+                    <Form.Field  >
+                        <label htmlFor="energy">Energy produced or saved per year (kWh/year)</label>
+                        <input type="number" value={energy} onChange={(e) => setEnergy(e.target.value)} placeholder="Enter Energy Value..." />
+
+                    </Form.Field>
+                    <br />
+
+
+                    <Button color='linkedin'>
+                        Generate
+    </Button>
+                </Form.Group>
+            </Form>
 
 
 

@@ -8,7 +8,7 @@ import SimpleAnnualMethod from './components/SimpleAnnualMethod';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { GlobalProvider } from './context/GlobalState';
 import Payback from './components/Payback';
-
+import "./App.css"
 
 function App() {
   return (
